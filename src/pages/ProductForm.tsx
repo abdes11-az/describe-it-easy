@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import CarForm from "./CarForm";
 import PhoneForm from "./PhoneForm";
+import RealEstateForm from "./RealEstateForm";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -20,6 +21,11 @@ const ProductForm = () => {
   // If it's phones category, use the specialized phone form
   if (category === "phones") {
     return <PhoneForm />;
+  }
+
+  // If it's real-estate category, use the specialized real estate form
+  if (category === "real-estate") {
+    return <RealEstateForm />;
   }
 
   // Default form for other categories
