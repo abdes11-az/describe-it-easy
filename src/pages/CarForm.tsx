@@ -626,7 +626,6 @@ const CarForm = () => {
                   onChange={(e) => handleInputChange("price", e.target.value)}
                   placeholder="150,000 درهم"
                   className="text-right"
-                  required
                 />
               </div>
             </div>

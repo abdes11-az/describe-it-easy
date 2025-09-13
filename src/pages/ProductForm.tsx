@@ -99,7 +99,6 @@ const ProductForm = () => {
               value={formData.name}
               onChange={(e) => handleInputChange("name", e.target.value)}
               placeholder="أدخل اسم المنتج"
-              required
               className="text-right"
             />
           </div>
