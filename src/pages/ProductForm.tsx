@@ -3,6 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import CarForm from "./CarForm";
 import PhoneForm from "./PhoneForm";
 import RealEstateForm from "./RealEstateForm";
+import TenantForm from "./TenantForm";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,6 +29,11 @@ const ProductForm = () => {
     return <RealEstateForm />;
   }
 
+  // If it's tenant category, use the specialized tenant form
+  if (category === "tenant") {
+    return <TenantForm />;
+  }
+
   // Default form for other categories
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -44,7 +50,8 @@ const ProductForm = () => {
     "computers": "حواسب",
     "clothes": "ملابس",
     "motorcycles": "دراجات نارية",
-    "bicycles": "دراجات هوائية"
+    "bicycles": "دراجات هوائية",
+    "tenant": "ملف المستأجر"
   };
 
   const handleSubmit = (e: React.FormEvent) => {

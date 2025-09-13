@@ -16,6 +16,7 @@ const CreateDescription = () => {
     { id: "clothes", title: "ملابس", icon: "👗" },
     { id: "motorcycles", title: "دراجات نارية", icon: "🏍️" },
     { id: "bicycles", title: "دراجات هوائية", icon: "🚴‍♂️" },
+    { id: "tenant", title: "ملف المستأجر", icon: "📋" },
   ];
 
   return (
