@@ -1,6 +1,7 @@
 import { ReactNode } from "react";
 import Header from "./Header";
 import BottomNav from "./BottomNav";
+import InstallPrompt from "../InstallPrompt";
 
 interface LayoutProps {
   children: ReactNode;
@@ -14,6 +15,7 @@ const Layout = ({ children }: LayoutProps) => {
         {children}
       </main>
       <BottomNav />
+      <InstallPrompt />
     </div>
   );
 };
