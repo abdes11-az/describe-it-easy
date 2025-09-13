@@ -305,7 +305,6 @@ const TenantForm = () => {
           <Button 
             type="submit" 
             className="w-full h-12 text-base font-medium"
-            disabled={!formData.usageType.trim() && !formData.tenantType.trim()}
           >
             إنشاء الوصف
           </Button>

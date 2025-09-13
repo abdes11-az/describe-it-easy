@@ -134,7 +134,6 @@ const ProductForm = () => {
           <Button 
             type="submit" 
             className="w-full h-12 text-base font-medium"
-            disabled={!formData.name.trim()}
           >
             إنشاء الوصف
           </Button>

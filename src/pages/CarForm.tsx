@@ -690,7 +690,6 @@ const CarForm = () => {
         <Button 
           type="submit" 
           className="w-full h-12 text-base font-medium"
-          disabled={!formData.price.trim()}
         >
           إنشاء وصف السيارة
         </Button>

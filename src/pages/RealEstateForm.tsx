@@ -491,7 +491,6 @@ const RealEstateForm = () => {
           <Button 
             type="submit" 
             className="w-full h-12 text-base font-medium"
-            disabled={!formData.propertyType.trim() || !formData.city.trim()}
           >
             إنشاء الوصف
           </Button>
