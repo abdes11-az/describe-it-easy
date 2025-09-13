@@ -26,13 +26,15 @@ const DescriptionResult = () => {
       
       // Generate description based on category
       if (category === "cars") {
-        mockDescription = `🚗 ${formData?.carType || "سيارة"} ${formData?.model || ""} للبيع
+        mockDescription = `🚗 ${formData?.brand || "سيارة"} ${formData?.model || ""} للبيع
 
 📍 الموقع: ${formData?.city || "غير محدد"}
-📅 سنة الصنع: ${formData?.manufacturingYear || "غير محدد"}
+📅 سنة الصنع: ${formData?.year || "غير محدد"}
 ⛽ نوع الوقود: ${formData?.fuelType || "غير محدد"}
 🔧 ناقل الحركة: ${formData?.transmission || "غير محدد"}
 🚪 عدد الأبواب: ${formData?.doors || "غير محدد"}
+⚡ قوة المحرك: ${formData?.enginePower || "غير محدد"}
+${formData?.fuelConsumption ? `⛽ استهلاك الوقود: ${formData.fuelConsumption}` : ""}
 
 💰 السعر: ${formData?.price || "للاستفسار"}
 ${formData?.negotiable ? `💬 قابل للتفاوض: ${formData.negotiable}` : ""}
@@ -41,15 +43,40 @@ ${formData?.negotiable ? `💬 قابل للتفاوض: ${formData.negotiable}` 
 🎨 اللون: ${formData?.color || "غير محدد"}
 🔧 الحالة العامة: ${formData?.condition || "جيدة"}
 
-${formData?.firstUse === "yes" ? "✅ الاستخدام الأول" : ""}
-${formData?.accident === "no" ? "✅ لم تتعرض لحوادث" : formData?.accident === "minor" ? "⚠️ حادث بسيط" : ""}
-${formData?.originalPaint === "original" ? "✅ صباغة أصلية بالكامل" : ""}
+${formData?.firstUse === "yes" ? "✅ الاستخدام الأول" : formData?.firstUse === "no" ? "❌ ليس الاستخدام الأول" : ""}
+${formData?.allServicesAvailable === "yes" ? "✅ جميع الخدمات متوفرة" : formData?.allServicesAvailable === "no" ? "❌ الخدمات غير متوفرة" : ""}
+${formData?.firstUseInCountry ? `📅 تاريخ الاستخدام الأول في البلد: ${formData.firstUseInCountry}` : ""}
+${formData?.accident === "no" ? "✅ لم تتعرض لحوادث" : formData?.accident === "yes" ? "⚠️ تعرضت لحادث" : formData?.accident === "minor" ? "⚠️ حادث بسيط" : ""}
+${formData?.painting === "original" ? "✅ صباغة أصلية بالكامل" : formData?.painting === "partial" ? "🎨 صباغة جزئية" : formData?.painting === "full" ? "🎨 صباغة كاملة" : ""}
 
-${formData?.features && formData.features.length > 0 ? `🛠️ التجهيزات:\n${formData.features.map(f => `• ${f}`).join('\n')}` : ""}
+${formData?.modifications ? `🔧 التعديلات: ${formData.modifications}` : ""}
+
+🔧 التفاصيل التقنية:
+${formData?.engineType ? `• نوع المحرك: ${formData.engineType}` : ""}
+${formData?.steering ? `• المقود: ${formData.steering}` : ""}
+${formData?.airbags ? `• الوسائد الهوائية: ${formData.airbags}` : ""}
+${formData?.airConditioning ? `• التكييف: ${formData.airConditioning}` : ""}
+
+🛠️ حالة القطع:
+${formData?.wheelsType ? `• الإطارات: ${formData.wheelsType}` : ""}
+${formData?.glassType ? `• الزجاج: ${formData.glassType}` : ""}
+${formData?.interiorType ? `• الداخلية: ${formData.interiorType}` : ""}
+${formData?.speakersType ? `• السماعات: ${formData.speakersType}` : ""}
+
+${formData?.features && formData.features.length > 0 ? `✨ التجهيزات الإضافية:\n${formData.features.map(f => `• ${f}`).join('\n')}` : ""}
+
+👤 معلومات المالك:
+${formData?.ownerType ? `• نوع المالك: ${formData.ownerType}` : ""}
+${formData?.usageDuration ? `• مدة الاستخدام: ${formData.usageDuration}` : ""}
+${formData?.ownershipType ? `• نوع الملكية: ${formData.ownershipType}` : ""}
+${formData?.papersReady ? `• الأوراق: ${formData.papersReady}` : ""}
+${formData?.taxAmount ? `• مبلغ الضريبة: ${formData.taxAmount}` : ""}
+${formData?.insuranceAmount ? `• مبلغ التأمين: ${formData.insuranceAmount}` : ""}
 
 📞 للتواصل: ${formData?.phone || "انظر البيانات"}
 ${formData?.viewingTimes ? `⏰ أوقات المعاينة: ${formData.viewingTimes}` : ""}
 ${formData?.reasonForSale ? `📝 سبب البيع: ${formData.reasonForSale}` : ""}
+${formData?.unwantedCustomers ? `⚠️ العملاء غير المرغوبين: ${formData.unwantedCustomers}` : ""}
 
 ${formData?.additionalNotes ? `📋 ملاحظات إضافية:\n${formData.additionalNotes}` : ""}`;
       } else if (category === "phones") {
@@ -60,62 +87,80 @@ ${formData?.additionalNotes ? `📋 ملاحظات إضافية:\n${formData.add
 ⭐ الحالة: ${formData?.condition || "غير محدد"}
 ⏱️ مدة الاستخدام: ${formData?.usageDuration || "غير محدد"}
 
-💾 التخزين: ${formData?.storage || "غير محدد"}
-🧠 الذاكرة العشوائية: ${formData?.ram || "غير محدد"}
-📺 نوع الشاشة: ${formData?.screenType || "غير محدد"}
-🔋 سعة البطارية: ${formData?.batteryCapacity || "غير محدد"}
-${formData?.batteryHealth ? `🔋 صحة البطارية: ${formData.batteryHealth}%` : ""}
+💾 المواصفات التقنية:
+${formData?.storage ? `• التخزين: ${formData.storage}` : ""}
+${formData?.ram ? `• الذاكرة العشوائية: ${formData.ram}` : ""}
+${formData?.screenType ? `• نوع الشاشة: ${formData.screenType}` : ""}
+${formData?.operatingSystem ? `• نظام التشغيل: ${formData.operatingSystem}` : ""}
+${formData?.batteryCapacity ? `• سعة البطارية: ${formData.batteryCapacity}` : ""}
+${formData?.normalBatteryLife ? `• عمر البطارية العادي: ${formData.normalBatteryLife}` : ""}
+${formData?.gamingBatteryLife ? `• عمر البطارية في الألعاب: ${formData.gamingBatteryLife}` : ""}
+${formData?.iphoneBatteryPercentage ? `• نسبة البطارية للآيفون: ${formData.iphoneBatteryPercentage}` : ""}
 
-${formData?.fingerprint === "yes" ? "✅ بصمة الإصبع تعمل" : ""}
-${formData?.waterproof === "yes" ? "💧 مقاوم للماء" : ""}
-📶 حالة الشبكة: ${formData?.networkStatus || "ممتازة"}
+🔧 حالة الهاتف:
+${formData?.fingerprintWorks === "yes" ? "✅ بصمة الإصبع تعمل" : formData?.fingerprintWorks === "no" ? "❌ بصمة الإصبع لا تعمل" : formData?.fingerprintWorks === "none" ? "⚪ لا يوجد بصمة" : ""}
+${formData?.waterResistant === "yes" ? "✅ مقاوم للماء" : formData?.waterResistant === "no" ? "❌ غير مقاوم للماء" : formData?.waterResistant === "partial" ? "🔸 مقاوم للماء جزئياً" : ""}
+${formData?.networkCondition ? `📶 حالة الشبكة: ${formData.networkCondition}` : ""}
+
+${formData?.modifications ? `🔧 التعديلات: ${formData.modifications}` : ""}
 
 📦 الملحقات:
-${formData?.originalBox === "available" ? "✅ العلبة الأصلية متوفرة" : "❌ العلبة غير متوفرة"}
-${formData?.originalCharger === "available" ? "✅ الشاحن الأصلي متوفر" : "❌ الشاحن غير متوفر"}
+${formData?.originalBox === "available" ? "✅ العلبة الأصلية متوفرة" : formData?.originalBox === "not-available" ? "❌ العلبة غير متوفرة" : formData?.originalBox === "damaged" ? "⚠️ العلبة تالفة" : ""}
+${formData?.originalCharger === "available" ? "✅ الشاحن الأصلي متوفر" : formData?.originalCharger === "not-available" ? "❌ الشاحن غير متوفر" : formData?.originalCharger === "damaged" ? "⚠️ الشاحن تالف" : ""}
 ${formData?.additionalAccessories && formData.additionalAccessories.length > 0 ? `🎁 ملحقات إضافية:\n${formData.additionalAccessories.map(a => `• ${a}`).join('\n')}` : ""}
 
 💰 السعر: ${formData?.price || "للاستفسار"}
 ${formData?.negotiable ? `💬 قابل للتفاوض: ${formData.negotiable}` : ""}
 ${formData?.warranty === "available" ? `🛡️ الضمان: متوفر${formData?.warrantyDuration ? ` - ${formData.warrantyDuration}` : ""}` : ""}
+${formData?.acceptExchange ? `🔄 يقبل المبادلة: ${formData.acceptExchange}` : ""}
 
-📞 للتواصل: ${formData?.contactMethod || "انظر البيانات"}
-🚚 التوصيل: ${formData?.deliveryMethod || "حسب الاتفاق"}
+👤 معلومات البائع:
+${formData?.sellerType ? `• نوع البائع: ${formData.sellerType}` : ""}
+${formData?.deliveryMethod ? `• طريقة التوصيل: ${formData.deliveryMethod}` : ""}
+${formData?.contactMethod ? `• طريقة التواصل: ${formData.contactMethod}` : ""}
+${formData?.inspectionTimes ? `• أوقات المعاينة: ${formData.inspectionTimes}` : ""}
+${formData?.unwantedCustomers && formData.unwantedCustomers.length > 0 ? `⚠️ شروط خاصة:\n${formData.unwantedCustomers.map(c => `• ${c}`).join('\n')}` : ""}
 
 ${formData?.reasonForSale ? `📝 سبب البيع: ${formData.reasonForSale}` : ""}
 ${formData?.additionalNotes ? `📋 ملاحظات إضافية:\n${formData.additionalNotes}` : ""}`;
       } else if (category === "real-estate") {
         mockDescription = `🏠 ${formData?.propertyType || "عقار"} ${formData?.purpose || "للبيع"}
 
-📍 الموقع: ${formData?.city || "غير محدد"} - ${formData?.neighborhood || ""}
+📍 الموقع: ${formData?.city || "غير محدد"}${formData?.neighborhood ? ` - ${formData.neighborhood}` : ""}
 📐 المساحة: ${formData?.area || "غير محدد"}
 🏢 الطوابق: ${formData?.floors || "غير محدد"}
 ${formData?.currentFloor ? `📍 الطابق الحالي: ${formData.currentFloor}` : ""}
+${formData?.clientType ? `👥 نوع الزبون: ${formData.clientType}` : ""}
 
 🏠 توزيع الغرف:
 ${formData?.bedrooms ? `🛏️ غرف النوم: ${formData.bedrooms}` : ""}
 ${formData?.livingRooms ? `🛋️ غرف المعيشة: ${formData.livingRooms}` : ""}
 ${formData?.bathrooms ? `🚿 دورات المياه: ${formData.bathrooms}` : ""}
 ${formData?.kitchens ? `🍳 المطابخ: ${formData.kitchens}` : ""}
+${formData?.hasBalcony === "نعم" ? "✅ شرفة متوفرة" : formData?.hasBalcony === "لا" ? "❌ لا يوجد شرفة" : ""}
+${formData?.hasRoof === "نعم" ? "✅ سطح متوفر" : formData?.hasRoof === "لا" ? "❌ لا يوجد سطح" : ""}
 
 🏗️ المرافق:
-${formData?.hasElevator === "نعم" ? "✅ مصعد متوفر" : "❌ لا يوجد مصعد"}
-${formData?.hasParking === "نعم" ? "✅ موقف سيارات" : "❌ لا يوجد موقف"}
-${formData?.hasBalcony === "نعم" ? "✅ شرفة متوفرة" : ""}
-${formData?.hasRoof === "نعم" ? "✅ سطح متوفر" : ""}
-${formData?.furnished ? `🪑 الأثاث: ${formData.furnished}` : ""}
+${formData?.hasElevator === "نعم" ? "✅ مصعد متوفر" : formData?.hasElevator === "لا" ? "❌ لا يوجد مصعد" : ""}
+${formData?.hasParking === "نعم" ? "✅ موقف سيارات" : formData?.hasParking === "لا" ? "❌ لا يوجد موقف" : ""}
+${formData?.furnished === "نعم" ? "🪑 مفروش بالكامل" : formData?.furnished === "لا" ? "🪑 غير مفروش" : formData?.furnished === "جزئياً" ? "🪑 مفروش جزئياً" : ""}
 
 ${formData?.nearbyServices && formData.nearbyServices.length > 0 ? `🏪 الخدمات القريبة:\n${formData.nearbyServices.map(s => `• ${s}`).join('\n')}` : ""}
 
 💰 السعر: ${formData?.price || "للاستفسار"}
-${formData?.negotiable ? `💬 قابل للتفاوض: ${formData.negotiable}` : ""}
-${formData?.readyToMove ? `🏃‍♂️ جاهز للانتقال: ${formData.readyToMove}` : ""}
+${formData?.negotiable === "نعم" ? "💬 قابل للتفاوض" : formData?.negotiable === "لا" ? "💬 السعر ثابت" : ""}
+${formData?.readyToMove === "نعم" ? "🏃‍♂️ جاهز للانتقال فوراً" : formData?.readyToMove === "لا" ? "🏃‍♂️ غير جاهز للانتقال" : formData?.readyToMove === "بعد فترة" ? "🏃‍♂️ جاهز للانتقال بعد فترة" : ""}
 
 📞 للتواصل: ${formData?.contactMethod || "انظر البيانات"}
 ${formData?.viewingTimes ? `⏰ أوقات المعاينة: ${formData.viewingTimes}` : ""}
+${formData?.unwantedClients && formData.unwantedClients.length > 0 ? `⚠️ شروط خاصة:\n${formData.unwantedClients.map(c => `• ${c}`).join('\n')}` : ""}
+${formData?.sellReason ? `📝 سبب البيع: ${formData.sellReason}` : ""}
 
-${formData?.neighborhoodType ? `🏘️ نوع الحي: ${formData.neighborhoodType}` : ""}
-${formData?.securityLevel ? `🔒 مستوى الأمان: ${formData.securityLevel}` : ""}
+🏘️ معلومات المنطقة:
+${formData?.neighborhoodType ? `• نوع الحي: ${formData.neighborhoodType}` : ""}
+${formData?.neighborsNature ? `• طبيعة الجيران: ${formData.neighborsNature}` : ""}
+${formData?.noiseLevel ? `• مستوى الضوضاء: ${formData.noiseLevel}` : ""}
+${formData?.securityLevel ? `• مستوى الأمان: ${formData.securityLevel}` : ""}
 
 ${formData?.additionalNotes ? `📋 ملاحظات إضافية:\n${formData.additionalNotes}` : ""}`;
       } else if (category === "tenant") {
@@ -129,16 +174,16 @@ ${formData?.usageType === "سكني" || formData?.usageType === "مختلط" ? `
 🏠 القسم السكني:
 ${formData?.numberOfResidents ? `👥 عدد السكان: ${formData.numberOfResidents}` : ""}
 ${formData?.hasChildren === "نعم" ? `👶 وجود أطفال: نعم ${formData?.numberOfChildren ? `(${formData.numberOfChildren} أطفال)` : ""}` : formData?.hasChildren === "لا" ? "👶 لا يوجد أطفال" : ""}
-${formData?.hasFurniture ? `🪑 الأثاث: ${formData.hasFurniture}` : ""}
-${formData?.hasPets ? `🐕 الحيوانات الأليفة: ${formData.hasPets}` : ""}
-${formData?.contractSigning ? `📄 توقيع العقد: ${formData.contractSigning}` : ""}
-${formData?.paymentMethod ? `💳 طريقة الدفع: ${formData.paymentMethod}` : ""}` : ""}
+${formData?.hasFurniture === "نعم" ? "🪑 يحتاج أثاث" : formData?.hasFurniture === "لا" ? "🪑 لا يحتاج أثاث" : formData?.hasFurniture === "جزئياً" ? "🪑 يحتاج أثاث جزئي" : ""}
+${formData?.hasPets === "نعم" ? "🐕 يملك حيوانات أليفة" : formData?.hasPets === "لا" ? "🐕 لا يملك حيوانات أليفة" : ""}
+${formData?.contractSigning === "نعم" ? "📄 موافق على توقيع العقد" : formData?.contractSigning === "لا" ? "📄 غير موافق على العقد" : formData?.contractSigning === "حسب رغبة صاحب الملك" ? "📄 حسب رغبة صاحب الملك" : ""}
+${formData?.paymentMethod ? `💳 طريقة الدفع المفضلة: ${formData.paymentMethod}` : ""}` : ""}
 
 ${formData?.usageType === "تجاري" || formData?.usageType === "مكتبي" || formData?.usageType === "مختلط" ? `
 🏢 القسم التجاري:
-${formData?.businessType ? `🏪 نوع النشاط: ${formData.businessType}` : ""}
+${formData?.businessType ? `🏪 نوع النشاط التجاري: ${formData.businessType}` : ""}
 ${formData?.numberOfEmployees ? `👨‍💼 عدد الموظفين: ${formData.numberOfEmployees}` : ""}
-${formData?.businessContractSigning ? `📄 العقد التجاري: ${formData.businessContractSigning}` : ""}` : ""}
+${formData?.businessContractSigning === "نعم" ? "📄 موافق على العقد التجاري" : formData?.businessContractSigning === "لا" ? "📄 غير موافق على العقد التجاري" : formData?.businessContractSigning === "حسب رغبة صاحب الملك" ? "📄 حسب رغبة صاحب الملك" : ""}` : ""}
 
 📞 للتواصل: ${formData?.contactMethod || "حسب الاتفاق"}
 
