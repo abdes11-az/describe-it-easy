@@ -25,41 +25,137 @@ const DescriptionResult = () => {
       let mockDescription = "";
       
       // Generate description based on category
-      if (category === "tenant") {
-        mockDescription = `ملف المستأجر المثالي 📋
+      if (category === "cars") {
+        mockDescription = `🚗 ${formData?.carType || "سيارة"} ${formData?.model || ""} للبيع
 
-✅ نوع الاستخدام: ${formData?.usageType || "غير محدد"}
-✅ نوع المستأجر: ${formData?.tenantType || "غير محدد"}  
-✅ مدة الإيجار: ${formData?.rentalDuration || "غير محدد"}
+📍 الموقع: ${formData?.city || "غير محدد"}
+📅 سنة الصنع: ${formData?.manufacturingYear || "غير محدد"}
+⛽ نوع الوقود: ${formData?.fuelType || "غير محدد"}
+🔧 ناقل الحركة: ${formData?.transmission || "غير محدد"}
+🚪 عدد الأبواب: ${formData?.doors || "غير محدد"}
 
+💰 السعر: ${formData?.price || "للاستفسار"}
+${formData?.negotiable ? `💬 قابل للتفاوض: ${formData.negotiable}` : ""}
+
+🛞 الكيلومترات: ${formData?.kilometers || "غير محدد"}
+🎨 اللون: ${formData?.color || "غير محدد"}
+🔧 الحالة العامة: ${formData?.condition || "جيدة"}
+
+${formData?.firstUse === "yes" ? "✅ الاستخدام الأول" : ""}
+${formData?.accident === "no" ? "✅ لم تتعرض لحوادث" : formData?.accident === "minor" ? "⚠️ حادث بسيط" : ""}
+${formData?.originalPaint === "original" ? "✅ صباغة أصلية بالكامل" : ""}
+
+${formData?.features && formData.features.length > 0 ? `🛠️ التجهيزات:\n${formData.features.map(f => `• ${f}`).join('\n')}` : ""}
+
+📞 للتواصل: ${formData?.phone || "انظر البيانات"}
+${formData?.viewingTimes ? `⏰ أوقات المعاينة: ${formData.viewingTimes}` : ""}
+${formData?.reasonForSale ? `📝 سبب البيع: ${formData.reasonForSale}` : ""}
+
+${formData?.additionalNotes ? `📋 ملاحظات إضافية:\n${formData.additionalNotes}` : ""}`;
+      } else if (category === "phones") {
+        mockDescription = `📱 ${formData?.phoneName || "هاتف"} للبيع
+
+📍 الموقع: ${formData?.city || "غير محدد"}
+🎨 اللون: ${formData?.color || "غير محدد"}
+⭐ الحالة: ${formData?.condition || "غير محدد"}
+⏱️ مدة الاستخدام: ${formData?.usageDuration || "غير محدد"}
+
+💾 التخزين: ${formData?.storage || "غير محدد"}
+🧠 الذاكرة العشوائية: ${formData?.ram || "غير محدد"}
+📺 نوع الشاشة: ${formData?.screenType || "غير محدد"}
+🔋 سعة البطارية: ${formData?.batteryCapacity || "غير محدد"}
+${formData?.batteryHealth ? `🔋 صحة البطارية: ${formData.batteryHealth}%` : ""}
+
+${formData?.fingerprint === "yes" ? "✅ بصمة الإصبع تعمل" : ""}
+${formData?.waterproof === "yes" ? "💧 مقاوم للماء" : ""}
+📶 حالة الشبكة: ${formData?.networkStatus || "ممتازة"}
+
+📦 الملحقات:
+${formData?.originalBox === "available" ? "✅ العلبة الأصلية متوفرة" : "❌ العلبة غير متوفرة"}
+${formData?.originalCharger === "available" ? "✅ الشاحن الأصلي متوفر" : "❌ الشاحن غير متوفر"}
+${formData?.additionalAccessories && formData.additionalAccessories.length > 0 ? `🎁 ملحقات إضافية:\n${formData.additionalAccessories.map(a => `• ${a}`).join('\n')}` : ""}
+
+💰 السعر: ${formData?.price || "للاستفسار"}
+${formData?.negotiable ? `💬 قابل للتفاوض: ${formData.negotiable}` : ""}
+${formData?.warranty === "available" ? `🛡️ الضمان: متوفر${formData?.warrantyDuration ? ` - ${formData.warrantyDuration}` : ""}` : ""}
+
+📞 للتواصل: ${formData?.contactMethod || "انظر البيانات"}
+🚚 التوصيل: ${formData?.deliveryMethod || "حسب الاتفاق"}
+
+${formData?.reasonForSale ? `📝 سبب البيع: ${formData.reasonForSale}` : ""}
+${formData?.additionalNotes ? `📋 ملاحظات إضافية:\n${formData.additionalNotes}` : ""}`;
+      } else if (category === "real-estate") {
+        mockDescription = `🏠 ${formData?.propertyType || "عقار"} ${formData?.purpose || "للبيع"}
+
+📍 الموقع: ${formData?.city || "غير محدد"} - ${formData?.neighborhood || ""}
+📐 المساحة: ${formData?.area || "غير محدد"}
+🏢 الطوابق: ${formData?.floors || "غير محدد"}
+${formData?.currentFloor ? `📍 الطابق الحالي: ${formData.currentFloor}` : ""}
+
+🏠 توزيع الغرف:
+${formData?.bedrooms ? `🛏️ غرف النوم: ${formData.bedrooms}` : ""}
+${formData?.livingRooms ? `🛋️ غرف المعيشة: ${formData.livingRooms}` : ""}
+${formData?.bathrooms ? `🚿 دورات المياه: ${formData.bathrooms}` : ""}
+${formData?.kitchens ? `🍳 المطابخ: ${formData.kitchens}` : ""}
+
+🏗️ المرافق:
+${formData?.hasElevator === "نعم" ? "✅ مصعد متوفر" : "❌ لا يوجد مصعد"}
+${formData?.hasParking === "نعم" ? "✅ موقف سيارات" : "❌ لا يوجد موقف"}
+${formData?.hasBalcony === "نعم" ? "✅ شرفة متوفرة" : ""}
+${formData?.hasRoof === "نعم" ? "✅ سطح متوفر" : ""}
+${formData?.furnished ? `🪑 الأثاث: ${formData.furnished}` : ""}
+
+${formData?.nearbyServices && formData.nearbyServices.length > 0 ? `🏪 الخدمات القريبة:\n${formData.nearbyServices.map(s => `• ${s}`).join('\n')}` : ""}
+
+💰 السعر: ${formData?.price || "للاستفسار"}
+${formData?.negotiable ? `💬 قابل للتفاوض: ${formData.negotiable}` : ""}
+${formData?.readyToMove ? `🏃‍♂️ جاهز للانتقال: ${formData.readyToMove}` : ""}
+
+📞 للتواصل: ${formData?.contactMethod || "انظر البيانات"}
+${formData?.viewingTimes ? `⏰ أوقات المعاينة: ${formData.viewingTimes}` : ""}
+
+${formData?.neighborhoodType ? `🏘️ نوع الحي: ${formData.neighborhoodType}` : ""}
+${formData?.securityLevel ? `🔒 مستوى الأمان: ${formData.securityLevel}` : ""}
+
+${formData?.additionalNotes ? `📋 ملاحظات إضافية:\n${formData.additionalNotes}` : ""}`;
+      } else if (category === "tenant") {
+        mockDescription = `📋 ملف المستأجر المطلوب
+
+🏢 نوع الاستخدام: ${formData?.usageType || "غير محدد"}
+👥 نوع المستأجر: ${formData?.tenantType || "غير محدد"}  
+📅 مدة الإيجار: ${formData?.rentalDuration || "غير محدد"}
+
+${formData?.usageType === "سكني" || formData?.usageType === "مختلط" ? `
+🏠 القسم السكني:
 ${formData?.numberOfResidents ? `👥 عدد السكان: ${formData.numberOfResidents}` : ""}
-${formData?.hasChildren === "نعم" ? `👶 وجود أطفال: نعم ${formData?.numberOfChildren ? `(${formData.numberOfChildren})` : ""}` : ""}
+${formData?.hasChildren === "نعم" ? `👶 وجود أطفال: نعم ${formData?.numberOfChildren ? `(${formData.numberOfChildren} أطفال)` : ""}` : formData?.hasChildren === "لا" ? "👶 لا يوجد أطفال" : ""}
 ${formData?.hasFurniture ? `🪑 الأثاث: ${formData.hasFurniture}` : ""}
 ${formData?.hasPets ? `🐕 الحيوانات الأليفة: ${formData.hasPets}` : ""}
+${formData?.contractSigning ? `📄 توقيع العقد: ${formData.contractSigning}` : ""}
+${formData?.paymentMethod ? `💳 طريقة الدفع: ${formData.paymentMethod}` : ""}` : ""}
 
-${formData?.businessType ? `🏢 نوع النشاط التجاري: ${formData.businessType}` : ""}
+${formData?.usageType === "تجاري" || formData?.usageType === "مكتبي" || formData?.usageType === "مختلط" ? `
+🏢 القسم التجاري:
+${formData?.businessType ? `🏪 نوع النشاط: ${formData.businessType}` : ""}
 ${formData?.numberOfEmployees ? `👨‍💼 عدد الموظفين: ${formData.numberOfEmployees}` : ""}
+${formData?.businessContractSigning ? `📄 العقد التجاري: ${formData.businessContractSigning}` : ""}` : ""}
 
 📞 للتواصل: ${formData?.contactMethod || "حسب الاتفاق"}
 
-${formData?.additionalNotes ? `📝 ملاحظات إضافية:\n${formData.additionalNotes}` : ""}`;
+${formData?.additionalNotes ? `📝 ملاحظات إضافية:\n${formData.additionalNotes}` : ""}
+
+✅ ملف مستأجر موثوق ومناسب لمتطلباتكم`;
       } else {
         // Default description for other categories
-        mockDescription = `${formData?.name || "المنتج"} المميز بمواصفات عالية الجودة. 
+        mockDescription = `${formData?.name || "المنتج"} المميز
 
-${formData?.description || "وصف رائع للمنتج"} يتميز بالأداء المتفوق والتصميم الأنيق. 
+📝 ${formData?.description || "منتج عالي الجودة يلبي احتياجاتكم"}
 
-📌 المواصفات الرئيسية:
-• جودة عالية ومواد متينة
-• تصميم عصري وأنيق
-• سهولة في الاستخدام
-• ضمان شامل
+💰 السعر: ${formData?.price || "للاستفسار"}
 
-💰 السعر: ${formData?.price || "غير محدد"}
+📞 للتواصل والاستفسار
 
-⭐ منتج موصى به للحصول على أفضل تجربة وقيمة مقابل السعر.
-
-للاستفسار والطلب، تواصل معنا مباشرة.`;
+⭐ منتج موصى به للحصول على أفضل تجربة وقيمة مقابل السعر.`;
       }
 
       setDescription(mockDescription);
@@ -148,7 +244,7 @@ ${formData?.description || "وصف رائع للمنتج"} يتميز بالأد
         ) : (
           <div className="space-y-4">
             <div className="prose prose-sm max-w-none text-right">
-              <div className="whitespace-pre-wrap text-foreground leading-relaxed">
+              <div className="whitespace-pre-wrap text-foreground leading-relaxed bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border">
                 {description}
               </div>
             </div>
