@@ -16,11 +16,36 @@ const DescriptionResult = () => {
 
   // Mock description generation
   const generateDescription = () => {
+    if (isGenerating) return; // Prevent multiple calls
+    
     setIsGenerating(true);
     
-    // Simulate API call
+    // Simulate faster API call
     setTimeout(() => {
-      const mockDescription = `${formData?.name || "المنتج"} المميز بمواصفات عالية الجودة. 
+      let mockDescription = "";
+      
+      // Generate description based on category
+      if (category === "tenant") {
+        mockDescription = `ملف المستأجر المثالي 📋
+
+✅ نوع الاستخدام: ${formData?.usageType || "غير محدد"}
+✅ نوع المستأجر: ${formData?.tenantType || "غير محدد"}  
+✅ مدة الإيجار: ${formData?.rentalDuration || "غير محدد"}
+
+${formData?.numberOfResidents ? `👥 عدد السكان: ${formData.numberOfResidents}` : ""}
+${formData?.hasChildren === "نعم" ? `👶 وجود أطفال: نعم ${formData?.numberOfChildren ? `(${formData.numberOfChildren})` : ""}` : ""}
+${formData?.hasFurniture ? `🪑 الأثاث: ${formData.hasFurniture}` : ""}
+${formData?.hasPets ? `🐕 الحيوانات الأليفة: ${formData.hasPets}` : ""}
+
+${formData?.businessType ? `🏢 نوع النشاط التجاري: ${formData.businessType}` : ""}
+${formData?.numberOfEmployees ? `👨‍💼 عدد الموظفين: ${formData.numberOfEmployees}` : ""}
+
+📞 للتواصل: ${formData?.contactMethod || "حسب الاتفاق"}
+
+${formData?.additionalNotes ? `📝 ملاحظات إضافية:\n${formData.additionalNotes}` : ""}`;
+      } else {
+        // Default description for other categories
+        mockDescription = `${formData?.name || "المنتج"} المميز بمواصفات عالية الجودة. 
 
 ${formData?.description || "وصف رائع للمنتج"} يتميز بالأداء المتفوق والتصميم الأنيق. 
 
@@ -35,15 +60,16 @@ ${formData?.description || "وصف رائع للمنتج"} يتميز بالأد
 ⭐ منتج موصى به للحصول على أفضل تجربة وقيمة مقابل السعر.
 
 للاستفسار والطلب، تواصل معنا مباشرة.`;
+      }
 
       setDescription(mockDescription);
       setIsGenerating(false);
-    }, 2000);
+    }, 800); // Reduced from 2000ms to 800ms
   };
 
   // Generate description on component mount
   useState(() => {
-    if (formData && !description) {
+    if (formData && !description && !isGenerating) {
       generateDescription();
     }
   });
