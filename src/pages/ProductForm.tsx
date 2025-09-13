@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import CarForm from "./CarForm";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -8,8 +9,15 @@ import { Label } from "@/components/ui/label";
 import { Card } from "@/components/ui/card";
 
 const ProductForm = () => {
-  const navigate = useNavigate();
   const { category } = useParams();
+
+  // If it's cars category, use the specialized car form
+  if (category === "cars") {
+    return <CarForm />;
+  }
+
+  // Default form for other categories
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     price: "",
