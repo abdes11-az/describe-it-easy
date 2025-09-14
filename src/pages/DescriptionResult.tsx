@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { ChevronRight, Copy, Star, RotateCcw } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -19,9 +19,6 @@ const DescriptionResult = () => {
     if (isGenerating) return; // Prevent multiple calls
     
     setIsGenerating(true);
-    
-    // Simulate faster API call
-    setTimeout(() => {
       let mockDescription = "";
       
       // Generate description based on category
@@ -205,15 +202,14 @@ ${formData?.additionalNotes ? `📝 ملاحظات إضافية:\n${formData.add
 
       setDescription(mockDescription);
       setIsGenerating(false);
-    }, 800); // Reduced from 2000ms to 800ms
   };
 
   // Generate description on component mount
-  useState(() => {
+  useEffect(() => {
     if (formData && !description && !isGenerating) {
       generateDescription();
     }
-  });
+  }, [formData]);
 
   const copyToClipboard = async () => {
     try {
