@@ -69,7 +69,7 @@ const TenantForm = () => {
           {/* القسم الأول: القسم العام */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              القسم الأول: القسم العام
+              القسم العام
             </h3>
             
             <div className="grid grid-cols-1 gap-4">
@@ -130,7 +130,7 @@ const TenantForm = () => {
           {/* القسم الثاني: القسم السكني */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              القسم الثاني: القسم السكني
+              القسم السكني
             </h3>
             
             <div className="grid grid-cols-1 gap-4">
@@ -232,7 +232,7 @@ const TenantForm = () => {
           {/* القسم الثالث: القسم التجاري */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              القسم الثالث: القسم التجاري
+              القسم التجاري
             </h3>
             
             <div className="grid grid-cols-1 gap-4">
@@ -275,7 +275,7 @@ const TenantForm = () => {
           {/* القسم الرابع: طريقة التواصل */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              القسم الرابع: طريقة التواصل
+              طريقة التواصل
             </h3>
             
             <div className="grid grid-cols-1 gap-4">

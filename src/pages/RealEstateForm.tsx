@@ -98,7 +98,7 @@ const RealEstateForm = () => {
           {/* القسم الأول: الغرض من العقار */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              القسم الأول: الغرض من العقار
+              الغرض من العقار
             </h3>
             
             <div className="space-y-2">
@@ -119,7 +119,7 @@ const RealEstateForm = () => {
           {/* القسم الثاني: المعلومات الأساسية */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              القسم الثاني: المعلومات الأساسية
+              المعلومات الأساسية
             </h3>
             
             <div className="grid grid-cols-1 gap-4">
@@ -207,7 +207,7 @@ const RealEstateForm = () => {
           {/* القسم الثالث: توزيع الغرف */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              القسم الثالث: توزيع الغرف
+              توزيع الغرف
             </h3>
             
             <div className="grid grid-cols-2 gap-4">
@@ -284,7 +284,7 @@ const RealEstateForm = () => {
           {/* القسم الرابع: المرافق والخدمات */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              القسم الرابع: المرافق والخدمات
+              المرافق والخدمات
             </h3>
             
             <div className="grid grid-cols-1 gap-4">
@@ -355,7 +355,7 @@ const RealEstateForm = () => {
           {/* القسم الخامس: السعر والتواصل */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              القسم الخامس: السعر والتواصل
+              السعر والتواصل
             </h3>
             
             <div className="grid grid-cols-1 gap-4">
@@ -431,7 +431,7 @@ const RealEstateForm = () => {
           {/* القسم السادس: معلومات المنطقة */}
           <div className="space-y-4">
             <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              القسم السادس: معلومات المنطقة
+              معلومات المنطقة
             </h3>
             
             <div className="grid grid-cols-1 gap-4">
