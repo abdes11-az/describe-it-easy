@@ -1,25 +1,72 @@
+import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Star } from "lucide-react";
+import { Star, Eye, Copy, Trash2 } from "lucide-react";
+import { useToast } from "@/hooks/use-toast";
 
 const Saved = () => {
-  // Mock saved items
-  const savedItems = [
-    {
-      id: 1,
-      name: "iPhone 15 Pro Max",
-      category: "هواتف",
-      date: "٢٠٢٤/٠٩/١٣",
-      preview: "iPhone 15 Pro Max المميز بمواصفات عالية الجودة..."
-    },
-    {
-      id: 2,
-      name: "تويوتا كامري 2024",
-      category: "سيارات", 
-      date: "٢٠٢٤/٠٩/١٢",
-      preview: "تويوتا كامري 2024 بتصميم أنيق وأداء متفوق..."
+  const navigate = useNavigate();
+  const { toast } = useToast();
+  const [savedItems, setSavedItems] = useState<any[]>([]);
+
+  // Load saved items from localStorage on component mount
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem('savedDescriptions');
+      if (saved) {
+        setSavedItems(JSON.parse(saved));
+      }
+    } catch (error) {
+      console.error('Error loading saved items:', error);
     }
-  ];
+  }, []);
+
+  const handleDelete = (itemId: string) => {
+    try {
+      const updatedItems = savedItems.filter(item => item.id !== itemId);
+      setSavedItems(updatedItems);
+      localStorage.setItem('savedDescriptions', JSON.stringify(updatedItems));
+      
+      toast({
+        title: "تم الحذف",
+        description: "تم حذف الوصف من المحفوظات",
+      });
+    } catch (error) {
+      toast({
+        title: "خطأ",
+        description: "فشل في حذف الوصف",
+        variant: "destructive",
+      });
+    }
+  };
+
+  const handleView = (item: any) => {
+    // Navigate to result page with saved data
+    navigate("/result", { 
+      state: { 
+        formData: item.formData, 
+        category: item.categoryType,
+        savedDescription: item.description
+      } 
+    });
+  };
+
+  const handleCopy = async (description: string) => {
+    try {
+      await navigator.clipboard.writeText(description);
+      toast({
+        title: "تم النسخ",
+        description: "تم نسخ الوصف بنجاح",
+      });
+    } catch (error) {
+      toast({
+        title: "خطأ",
+        description: "فشل في نسخ الوصف",
+        variant: "destructive",
+      });
+    }
+  };
 
   return (
     <div className="space-y-6">
@@ -54,18 +101,36 @@ const Saved = () => {
                   </div>
                 </div>
                 
-                <p className="text-sm text-muted leading-relaxed line-clamp-2">
-                  {item.preview}
+                <p className="text-sm text-muted leading-relaxed line-clamp-3">
+                  {item.description?.substring(0, 150)}...
                 </p>
                 
                 <div className="flex gap-2 pt-2">
-                  <Button variant="outline" size="sm" className="flex-1">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="flex-1 flex items-center gap-2"
+                    onClick={() => handleView(item)}
+                  >
+                    <Eye className="h-4 w-4" />
                     عرض
                   </Button>
-                  <Button variant="outline" size="sm" className="flex-1">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="flex-1 flex items-center gap-2"
+                    onClick={() => handleCopy(item.description)}
+                  >
+                    <Copy className="h-4 w-4" />
                     نسخ
                   </Button>
-                  <Button variant="outline" size="sm" className="flex-1">
+                  <Button 
+                    variant="outline" 
+                    size="sm" 
+                    className="flex-1 flex items-center gap-2 text-destructive hover:text-destructive"
+                    onClick={() => handleDelete(item.id)}
+                  >
+                    <Trash2 className="h-4 w-4" />
                     حذف
                   </Button>
                 </div>
@@ -84,7 +149,7 @@ const Saved = () => {
           <p className="text-muted mb-6">
             ابدأ بإنشاء أوصاف واحفظ المفيد منها هنا
           </p>
-          <Button onClick={() => window.location.href = "/create"}>
+          <Button onClick={() => navigate("/create")}>
             إنشاء وصف جديد
           </Button>
         </div>

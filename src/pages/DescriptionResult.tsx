@@ -10,8 +10,8 @@ const DescriptionResult = () => {
   const location = useLocation();
   const { toast } = useToast();
   
-  const { formData, category } = location.state || {};
-  const [description, setDescription] = useState("");
+  const { formData, category, savedDescription } = location.state || {};
+  const [description, setDescription] = useState(savedDescription || "");
   const [isGenerating, setIsGenerating] = useState(false);
 
   // Mock description generation
@@ -206,10 +206,11 @@ ${formData?.additionalNotes ? `📝 ملاحظات إضافية:\n${formData.add
 
   // Generate description on component mount
   useEffect(() => {
-    if (formData && !description && !isGenerating) {
+    // Only generate if we don't have a saved description and formData exists
+    if (formData && !savedDescription && !description && !isGenerating) {
       generateDescription();
     }
-  }, [formData]);
+  }, [formData, savedDescription]);
 
   const copyToClipboard = async () => {
     try {
@@ -228,11 +229,42 @@ ${formData?.additionalNotes ? `📝 ملاحظات إضافية:\n${formData.add
   };
 
   const saveDescription = () => {
-    // Mock save functionality
-    toast({
-      title: "تم الحفظ",
-      description: "تم حفظ الوصف في المحفوظات",
-    });
+    try {
+      // Get existing saved items from localStorage
+      const existingSavedItems = JSON.parse(localStorage.getItem('savedDescriptions') || '[]');
+      
+      // Create new saved item
+      const newSavedItem = {
+        id: Date.now().toString(),
+        name: formData?.name || formData?.phoneName || formData?.brand || formData?.propertyType || 'وصف محفوظ',
+        category: category === 'cars' ? 'سيارات' : 
+                 category === 'phones' ? 'هواتف' : 
+                 category === 'real-estate' ? 'عقارات' : 
+                 category === 'tenant' ? 'مستأجرين' : 'عام',
+        date: new Date().toLocaleDateString('ar-SA'),
+        description: description,
+        formData: formData,
+        categoryType: category,
+        savedAt: new Date().toISOString()
+      };
+      
+      // Add new item to the beginning of the array
+      const updatedSavedItems = [newSavedItem, ...existingSavedItems];
+      
+      // Save back to localStorage
+      localStorage.setItem('savedDescriptions', JSON.stringify(updatedSavedItems));
+      
+      toast({
+        title: "تم الحفظ",
+        description: "تم حفظ الوصف في المحفوظات بنجاح",
+      });
+    } catch (error) {
+      toast({
+        title: "خطأ",
+        description: "فشل في حفظ الوصف",
+        variant: "destructive",
+      });
+    }
   };
 
   if (!formData) {
