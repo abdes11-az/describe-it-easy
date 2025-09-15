@@ -730,7 +730,7 @@ const CarForm = () => {
           type="submit" 
           className="w-full h-12 text-base font-medium"
         >
-          إنشاء وصف السيارة
+          إنشاء الوصف
         </Button>
       </form>
     </div>

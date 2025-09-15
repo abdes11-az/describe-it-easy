@@ -107,8 +107,7 @@ const PhoneForm = () => {
       </div>
 
       {/* Form */}
-      <Card className="p-6">
-        <form onSubmit={handleSubmit} className="space-y-8">
+      <form onSubmit={handleSubmit} className="space-y-6">
           
           {/* المعلومات الأساسية */}
           <Card className="p-6 border-l-4 border-l-primary/50 shadow-sm hover:shadow-md transition-shadow">
@@ -584,14 +583,13 @@ const PhoneForm = () => {
             </div>
           </Card>
 
-          <Button
-            type="submit" 
-            className="w-full h-12 text-base font-medium"
-          >
-            إنشاء الوصف
-          </Button>
-        </form>
-      </Card>
+        <Button
+          type="submit" 
+          className="w-full h-12 text-base font-medium"
+        >
+          إنشاء الوصف
+        </Button>
+      </form>
     </div>
   );
 };

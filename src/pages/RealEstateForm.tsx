@@ -93,8 +93,7 @@ const RealEstateForm = () => {
       </div>
 
       {/* Form */}
-      <Card className="p-6">
-        <form onSubmit={handleSubmit} className="space-y-8">
+      <form onSubmit={handleSubmit} className="space-y-6">
           {/* الغرض من العقار */}
           <Card className="p-6 border-l-4 border-l-primary/50 shadow-sm hover:shadow-md transition-shadow">
             <div className="flex items-center gap-3 mb-6">
@@ -506,14 +505,13 @@ const RealEstateForm = () => {
             </div>
           </Card>
 
-          <Button
-            type="submit" 
-            className="w-full h-12 text-base font-medium"
-          >
-            إنشاء الوصف
-          </Button>
-        </form>
-      </Card>
+        <Button
+          type="submit" 
+          className="w-full h-12 text-base font-medium"
+        >
+          إنشاء الوصف
+        </Button>
+      </form>
     </div>
   );
 };
