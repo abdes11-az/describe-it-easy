@@ -306,7 +306,7 @@ ${formData?.additionalNotes ? `📝 ملاحظات إضافية:\n${formData.add
       </div>
 
       {/* Description Card */}
-      <Card className="p-6">
+      <Card className="p-4">
         {isGenerating ? (
           <div className="flex items-center justify-center py-12">
             <div className="text-center">
