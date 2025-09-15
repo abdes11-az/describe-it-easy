@@ -4,6 +4,11 @@ import CarForm from "./CarForm";
 import PhoneForm from "./PhoneForm";
 import RealEstateForm from "./RealEstateForm";
 import TenantForm from "./TenantForm";
+import TabletForm from "./TabletForm";
+import ComputerForm from "./ComputerForm";
+import ClothesForm from "./ClothesForm";
+import MotorcycleForm from "./MotorcycleForm";
+import BicycleForm from "./BicycleForm";
 import { ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -32,6 +37,31 @@ const ProductForm = () => {
   // If it's tenant category, use the specialized tenant form
   if (category === "tenant") {
     return <TenantForm />;
+  }
+
+  // If it's tablets category, use the specialized tablet form
+  if (category === "tablets") {
+    return <TabletForm />;
+  }
+
+  // If it's computers category, use the specialized computer form
+  if (category === "computers") {
+    return <ComputerForm />;
+  }
+
+  // If it's clothes category, use the specialized clothes form
+  if (category === "clothes") {
+    return <ClothesForm />;
+  }
+
+  // If it's motorcycles category, use the specialized motorcycle form
+  if (category === "motorcycles") {
+    return <MotorcycleForm />;
+  }
+
+  // If it's bicycles category, use the specialized bicycle form
+  if (category === "bicycles") {
+    return <BicycleForm />;
   }
 
   // Default form for other categories
