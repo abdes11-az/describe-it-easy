@@ -317,8 +317,8 @@ ${formData?.additionalNotes ? `📝 ملاحظات إضافية:\n${formData.add
         ) : (
           <div className="space-y-4">
             <div className="prose prose-sm max-w-none text-right">
-              <div className="whitespace-pre-wrap text-foreground leading-relaxed bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border">
-                {description}
+              <div className="text-foreground leading-relaxed bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border">
+                {description?.replace(/\n\s*\n/g, '\n')}
               </div>
             </div>
           </div>
