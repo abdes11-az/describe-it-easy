@@ -131,12 +131,10 @@ const CarForm = () => {
       <form onSubmit={handleSubmit} className="space-y-6">
         
         {/* المعلومات الأساسية */}
-        <Card className="p-6 border-l-4 border-l-primary/50 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
-              <span className="text-primary font-bold text-sm">1</span>
-            </div>
-            <h3 className="text-lg font-bold text-foreground">المعلومات الأساسية</h3>
+        <Card className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/20 border-blue-200 dark:border-blue-800">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
+            <h3 className="text-lg font-semibold text-blue-700 dark:text-blue-300">المعلومات الأساسية</h3>
           </div>
           <div className="space-y-4">
             <div className="space-y-2">
@@ -266,12 +264,10 @@ const CarForm = () => {
         </Card>
 
         {/* تفاصيل الاستخدام */}
-        <Card className="p-6 border-l-4 border-l-secondary/50 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
-              <span className="text-secondary font-bold text-sm">2</span>
-            </div>
-            <h3 className="text-lg font-bold text-foreground">تفاصيل الاستخدام</h3>
+        <Card className="p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-green-950/30 dark:to-green-900/20 border-green-200 dark:border-green-800">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-8 bg-green-500 text-white rounded-full flex items-center justify-center text-sm font-bold">2</div>
+            <h3 className="text-lg font-semibold text-green-700 dark:text-green-300">تفاصيل الاستخدام</h3>
           </div>
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
@@ -370,12 +366,10 @@ const CarForm = () => {
         </Card>
 
         {/* التعديلات */}
-        <Card className="p-6 border-l-4 border-l-accent/50 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
-              <span className="text-accent font-bold text-sm">3</span>
-            </div>
-            <h3 className="text-lg font-bold text-foreground">التعديلات</h3>
+        <Card className="p-6 bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-950/30 dark:to-purple-900/20 border-purple-200 dark:border-purple-800">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-8 bg-purple-500 text-white rounded-full flex items-center justify-center text-sm font-bold">3</div>
+            <h3 className="text-lg font-semibold text-purple-700 dark:text-purple-300">التعديلات</h3>
           </div>
           <div className="space-y-2">
             <Label htmlFor="modifications">التعديلات</Label>
@@ -391,12 +385,10 @@ const CarForm = () => {
         </Card>
 
         {/* التفاصيل التقنية */}
-        <Card className="p-6 border-l-4 border-l-destructive/50 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-8 bg-destructive/10 rounded-full flex items-center justify-center">
-              <span className="text-destructive font-bold text-sm">4</span>
-            </div>
-            <h3 className="text-lg font-bold text-foreground">التفاصيل التقنية</h3>
+        <Card className="p-6 bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-950/30 dark:to-orange-900/20 border-orange-200 dark:border-orange-800">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-8 bg-orange-500 text-white rounded-full flex items-center justify-center text-sm font-bold">4</div>
+            <h3 className="text-lg font-semibold text-orange-700 dark:text-orange-300">التفاصيل التقنية</h3>
           </div>
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
@@ -456,12 +448,10 @@ const CarForm = () => {
         </Card>
 
         {/* حالة السيارة */}
-        <Card className="p-6 border-l-4 border-l-muted/50 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-8 bg-muted/10 rounded-full flex items-center justify-center">
-              <span className="text-muted-foreground font-bold text-sm">5</span>
-            </div>
-            <h3 className="text-lg font-bold text-foreground">حالة السيارة</h3>
+        <Card className="p-6 bg-gradient-to-br from-red-50 to-red-100 dark:from-red-950/30 dark:to-red-900/20 border-red-200 dark:border-red-800">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-8 bg-red-500 text-white rounded-full flex items-center justify-center text-sm font-bold">5</div>
+            <h3 className="text-lg font-semibold text-red-700 dark:text-red-300">حالة السيارة</h3>
           </div>
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
@@ -515,12 +505,10 @@ const CarForm = () => {
         </Card>
 
         {/* العملاء غير المرغوبين */}
-        <Card className="p-6 border-l-4 border-l-warning/50 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-8 bg-warning/10 rounded-full flex items-center justify-center">
-              <span className="text-warning font-bold text-sm">6</span>
-            </div>
-            <h3 className="text-lg font-bold text-foreground">العملاء غير المرغوبين</h3>
+        <Card className="p-6 bg-gradient-to-br from-yellow-50 to-yellow-100 dark:from-yellow-950/30 dark:to-yellow-900/20 border-yellow-200 dark:border-yellow-800">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-8 bg-yellow-500 text-white rounded-full flex items-center justify-center text-sm font-bold">6</div>
+            <h3 className="text-lg font-semibold text-yellow-700 dark:text-yellow-300">العملاء غير المرغوبين</h3>
           </div>
           <div className="space-y-2">
             <Label htmlFor="unwantedCustomers">العملاء غير المرغوبين</Label>
@@ -536,12 +524,10 @@ const CarForm = () => {
         </Card>
 
         {/* التجهيزات الإضافية */}
-        <Card className="p-6 border-l-4 border-l-success/50 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-8 bg-success/10 rounded-full flex items-center justify-center">
-              <span className="text-success font-bold text-sm">7</span>
-            </div>
-            <h3 className="text-lg font-bold text-foreground">التجهيزات الإضافية</h3>
+        <Card className="p-6 bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-950/30 dark:to-emerald-900/20 border-emerald-200 dark:border-emerald-800">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-8 bg-emerald-500 text-white rounded-full flex items-center justify-center text-sm font-bold">7</div>
+            <h3 className="text-lg font-semibold text-emerald-700 dark:text-emerald-300">التجهيزات الإضافية</h3>
           </div>
           <div className="grid grid-cols-1 gap-3">
             {carFeatures.map((feature) => (
@@ -558,12 +544,10 @@ const CarForm = () => {
         </Card>
 
         {/* معلومات المالك */}
-        <Card className="p-6 border-l-4 border-l-info/50 shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="w-8 h-8 bg-info/10 rounded-full flex items-center justify-center">
-              <span className="text-info font-bold text-sm">8</span>
-            </div>
-            <h3 className="text-lg font-bold text-foreground">معلومات المالك</h3>
+        <Card className="p-6 bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-950/30 dark:to-indigo-900/20 border-indigo-200 dark:border-indigo-800">
+          <div className="flex items-center gap-3 mb-4">
+            <div className="w-8 h-8 bg-indigo-500 text-white rounded-full flex items-center justify-center text-sm font-bold">8</div>
+            <h3 className="text-lg font-semibold text-indigo-700 dark:text-indigo-300">معلومات المالك</h3>
           </div>
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
