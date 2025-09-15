@@ -51,7 +51,7 @@ const PhoneForm = () => {
     acceptExchange: "",
     reasonForSale: "",
     inspectionTimes: "",
-    unwantedCustomers: [] as string[],
+    unwantedCustomers: "",
     additionalNotes: ""
   });
 
@@ -79,9 +79,6 @@ const PhoneForm = () => {
     "سماعة بلوتوث", "كارت ذاكرة", "أدوات تنظيف"
   ];
 
-  const unwantedCustomersOptions = [
-    "بدون وسطاء", "السعر نهائي", "جادين فقط", "لا للمبادلة", "استفسار واحد فقط"
-  ];
 
   return (
     <div className="space-y-6">
@@ -541,23 +538,15 @@ const PhoneForm = () => {
             </div>
 
             <div className="space-y-2">
-              <Label>العملاء غير المرغوبين</Label>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
-                {unwantedCustomersOptions.map((option) => (
-                  <div key={option} className="flex items-center space-x-2 space-x-reverse">
-                    <Checkbox
-                      id={`unwanted-${option}`}
-                      checked={formData.unwantedCustomers.includes(option)}
-                      onCheckedChange={(checked) => 
-                        handleMultiSelectChange("unwantedCustomers", option, checked as boolean)
-                      }
-                    />
-                    <Label htmlFor={`unwanted-${option}`} className="text-sm">
-                      {option}
-                    </Label>
-                  </div>
-                ))}
-              </div>
+              <Label htmlFor="unwantedCustomers">العملاء غير المرغوبين</Label>
+              <Textarea
+                id="unwantedCustomers"
+                value={formData.unwantedCustomers}
+                onChange={(e) => handleInputChange("unwantedCustomers", e.target.value)}
+                placeholder="حدد نوع العملاء غير المرغوب فيهم (مثال: بدون وسطاء، السعر نهائي، جادين فقط)"
+                rows={2}
+                className="text-right resize-none"
+              />
             </div>
 
             <div className="space-y-2">
