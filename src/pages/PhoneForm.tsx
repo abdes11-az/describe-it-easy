@@ -110,11 +110,14 @@ const PhoneForm = () => {
       <Card className="p-6">
         <form onSubmit={handleSubmit} className="space-y-8">
           
-          {/* القسم الأول: المعلومات الأساسية */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground border-b pb-2">
-              المعلومات الأساسية
-            </h3>
+          {/* المعلومات الأساسية */}
+          <Card className="p-6 border-l-4 border-l-primary/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                <span className="text-primary font-bold text-sm">1</span>
+              </div>
+              <h3 className="text-lg font-bold text-foreground">المعلومات الأساسية</h3>
+            </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -164,13 +167,16 @@ const PhoneForm = () => {
                 />
               </div>
             </div>
-          </div>
+          </Card>
 
-          {/* القسم الثاني: التفاصيل التقنية */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground border-b pb-2">
-              التفاصيل التقنية
-            </h3>
+          {/* التفاصيل التقنية */}
+          <Card className="p-6 border-l-4 border-l-secondary/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
+                <span className="text-secondary font-bold text-sm">2</span>
+              </div>
+              <h3 className="text-lg font-bold text-foreground">التفاصيل التقنية</h3>
+            </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -310,13 +316,16 @@ const PhoneForm = () => {
                 </Select>
               </div>
             </div>
-          </div>
+          </Card>
 
-          {/* القسم الثالث: التعديلات */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground border-b pb-2">
-              التعديلات
-            </h3>
+          {/* التعديلات */}
+          <Card className="p-6 border-l-4 border-l-accent/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
+                <span className="text-accent font-bold text-sm">3</span>
+              </div>
+              <h3 className="text-lg font-bold text-foreground">التعديلات</h3>
+            </div>
             
             <div className="space-y-2">
               <Label htmlFor="modifications">التعديلات</Label>
@@ -329,13 +338,16 @@ const PhoneForm = () => {
                 className="text-right resize-none"
               />
             </div>
-          </div>
+          </Card>
 
-          {/* القسم الرابع: الملحقات */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground border-b pb-2">
-              الملحقات
-            </h3>
+          {/* الملحقات */}
+          <Card className="p-6 border-l-4 border-l-destructive/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-destructive/10 rounded-full flex items-center justify-center">
+                <span className="text-destructive font-bold text-sm">4</span>
+              </div>
+              <h3 className="text-lg font-bold text-foreground">الملحقات</h3>
+            </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -386,13 +398,16 @@ const PhoneForm = () => {
                 ))}
               </div>
             </div>
-          </div>
+          </Card>
 
-          {/* القسم الخامس: معلومات البائع */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground border-b pb-2">
-              معلومات البائع
-            </h3>
+          {/* معلومات البائع */}
+          <Card className="p-6 border-l-4 border-l-success/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-success/10 rounded-full flex items-center justify-center">
+                <span className="text-success font-bold text-sm">5</span>
+              </div>
+              <h3 className="text-lg font-bold text-foreground">معلومات البائع</h3>
+            </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -567,9 +582,9 @@ const PhoneForm = () => {
                 className="text-right resize-none"
               />
             </div>
-          </div>
+          </Card>
 
-          <Button 
+          <Button
             type="submit" 
             className="w-full h-12 text-base font-medium"
           >

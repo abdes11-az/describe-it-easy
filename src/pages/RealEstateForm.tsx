@@ -95,11 +95,14 @@ const RealEstateForm = () => {
       {/* Form */}
       <Card className="p-6">
         <form onSubmit={handleSubmit} className="space-y-8">
-          {/* القسم الأول: الغرض من العقار */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              الغرض من العقار
-            </h3>
+          {/* الغرض من العقار */}
+          <Card className="p-6 border-l-4 border-l-primary/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                <span className="text-primary font-bold text-sm">1</span>
+              </div>
+              <h3 className="text-lg font-bold text-foreground">الغرض من العقار</h3>
+            </div>
             
             <div className="space-y-2">
               <Label className="text-sm font-medium">الغرض</Label>
@@ -114,13 +117,16 @@ const RealEstateForm = () => {
                 </SelectContent>
               </Select>
             </div>
-          </div>
+          </Card>
 
-          {/* القسم الثاني: المعلومات الأساسية */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              المعلومات الأساسية
-            </h3>
+          {/* المعلومات الأساسية */}
+          <Card className="p-6 border-l-4 border-l-secondary/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
+                <span className="text-secondary font-bold text-sm">2</span>
+              </div>
+              <h3 className="text-lg font-bold text-foreground">المعلومات الأساسية</h3>
+            </div>
             
             <div className="grid grid-cols-1 gap-4">
               <div className="space-y-2">
@@ -202,13 +208,16 @@ const RealEstateForm = () => {
                 />
               </div>
             </div>
-          </div>
+          </Card>
 
-          {/* القسم الثالث: توزيع الغرف */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              توزيع الغرف
-            </h3>
+          {/* توزيع الغرف */}
+          <Card className="p-6 border-l-4 border-l-accent/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
+                <span className="text-accent font-bold text-sm">3</span>
+              </div>
+              <h3 className="text-lg font-bold text-foreground">توزيع الغرف</h3>
+            </div>
             
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -279,13 +288,16 @@ const RealEstateForm = () => {
                 </Select>
               </div>
             </div>
-          </div>
+          </Card>
 
-          {/* القسم الرابع: المرافق والخدمات */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              المرافق والخدمات
-            </h3>
+          {/* المرافق والخدمات */}
+          <Card className="p-6 border-l-4 border-l-destructive/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-destructive/10 rounded-full flex items-center justify-center">
+                <span className="text-destructive font-bold text-sm">4</span>
+              </div>
+              <h3 className="text-lg font-bold text-foreground">المرافق والخدمات</h3>
+            </div>
             
             <div className="grid grid-cols-1 gap-4">
               <div className="space-y-2">
@@ -350,13 +362,16 @@ const RealEstateForm = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </Card>
 
-          {/* القسم الخامس: السعر والتواصل */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              السعر والتواصل
-            </h3>
+          {/* السعر والتواصل */}
+          <Card className="p-6 border-l-4 border-l-success/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-success/10 rounded-full flex items-center justify-center">
+                <span className="text-success font-bold text-sm">5</span>
+              </div>
+              <h3 className="text-lg font-bold text-foreground">السعر والتواصل</h3>
+            </div>
             
             <div className="grid grid-cols-1 gap-4">
               <div className="space-y-2">
@@ -426,13 +441,16 @@ const RealEstateForm = () => {
                 />
               </div>
             </div>
-          </div>
+          </Card>
 
-          {/* القسم السادس: معلومات المنطقة */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              معلومات المنطقة
-            </h3>
+          {/* معلومات المنطقة */}
+          <Card className="p-6 border-l-4 border-l-info/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-info/10 rounded-full flex items-center justify-center">
+                <span className="text-info font-bold text-sm">6</span>
+              </div>
+              <h3 className="text-lg font-bold text-foreground">معلومات المنطقة</h3>
+            </div>
             
             <div className="grid grid-cols-1 gap-4">
               <div className="space-y-2">
@@ -486,9 +504,9 @@ const RealEstateForm = () => {
                 />
               </div>
             </div>
-          </div>
+          </Card>
 
-          <Button 
+          <Button
             type="submit" 
             className="w-full h-12 text-base font-medium"
           >

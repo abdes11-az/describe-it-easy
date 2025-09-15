@@ -66,11 +66,14 @@ const TenantForm = () => {
       {/* Form */}
       <Card className="p-6">
         <form onSubmit={handleSubmit} className="space-y-8">
-          {/* القسم الأول: القسم العام */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              القسم العام
-            </h3>
+          {/* القسم العام */}
+          <Card className="p-6 border-l-4 border-l-primary/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+                <span className="text-primary font-bold text-sm">1</span>
+              </div>
+              <h3 className="text-lg font-bold text-foreground">القسم العام</h3>
+            </div>
             
             <div className="grid grid-cols-1 gap-4">
               <div className="space-y-2">
@@ -125,13 +128,16 @@ const TenantForm = () => {
                 </Select>
               </div>
             </div>
-          </div>
+          </Card>
 
-          {/* القسم الثاني: القسم السكني */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              القسم السكني
-            </h3>
+          {/* القسم السكني */}
+          <Card className="p-6 border-l-4 border-l-secondary/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
+                <span className="text-secondary font-bold text-sm">2</span>
+              </div>
+              <h3 className="text-lg font-bold text-foreground">القسم السكني</h3>
+            </div>
             
             <div className="grid grid-cols-1 gap-4">
               <div className="space-y-2">
@@ -227,13 +233,16 @@ const TenantForm = () => {
                 </Select>
               </div>
             </div>
-          </div>
+          </Card>
 
-          {/* القسم الثالث: القسم التجاري */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              القسم التجاري
-            </h3>
+          {/* القسم التجاري */}
+          <Card className="p-6 border-l-4 border-l-accent/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
+                <span className="text-accent font-bold text-sm">3</span>
+              </div>
+              <h3 className="text-lg font-bold text-foreground">القسم التجاري</h3>
+            </div>
             
             <div className="grid grid-cols-1 gap-4">
               <div className="space-y-2">
@@ -270,13 +279,16 @@ const TenantForm = () => {
                 </Select>
               </div>
             </div>
-          </div>
+          </Card>
 
-          {/* القسم الرابع: طريقة التواصل */}
-          <div className="space-y-4">
-            <h3 className="text-lg font-semibold text-foreground border-b border-border pb-2">
-              طريقة التواصل
-            </h3>
+          {/* طريقة التواصل */}
+          <Card className="p-6 border-l-4 border-l-destructive/50 shadow-sm hover:shadow-md transition-shadow">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-8 h-8 bg-destructive/10 rounded-full flex items-center justify-center">
+                <span className="text-destructive font-bold text-sm">4</span>
+              </div>
+              <h3 className="text-lg font-bold text-foreground">طريقة التواصل</h3>
+            </div>
             
             <div className="grid grid-cols-1 gap-4">
               <div className="space-y-2">
@@ -300,9 +312,9 @@ const TenantForm = () => {
                 />
               </div>
             </div>
-          </div>
+          </Card>
 
-          <Button 
+          <Button
             type="submit" 
             className="w-full h-12 text-base font-medium"
           >

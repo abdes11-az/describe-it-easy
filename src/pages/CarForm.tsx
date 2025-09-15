@@ -130,9 +130,14 @@ const CarForm = () => {
       {/* Form */}
       <form onSubmit={handleSubmit} className="space-y-6">
         
-        {/* القسم الأول: المعلومات الأساسية */}
-        <Card className="p-6">
-          <h3 className="text-lg font-semibold mb-4 text-right">المعلومات الأساسية</h3>
+        {/* المعلومات الأساسية */}
+        <Card className="p-6 border-l-4 border-l-primary/50 shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-8 bg-primary/10 rounded-full flex items-center justify-center">
+              <span className="text-primary font-bold text-sm">1</span>
+            </div>
+            <h3 className="text-lg font-bold text-foreground">المعلومات الأساسية</h3>
+          </div>
           <div className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="city">المدينة</Label>
@@ -260,9 +265,14 @@ const CarForm = () => {
           </div>
         </Card>
 
-        {/* القسم الثاني: تفاصيل الاستخدام */}
-        <Card className="p-6">
-          <h3 className="text-lg font-semibold mb-4 text-right">تفاصيل الاستخدام</h3>
+        {/* تفاصيل الاستخدام */}
+        <Card className="p-6 border-l-4 border-l-secondary/50 shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-8 bg-secondary/10 rounded-full flex items-center justify-center">
+              <span className="text-secondary font-bold text-sm">2</span>
+            </div>
+            <h3 className="text-lg font-bold text-foreground">تفاصيل الاستخدام</h3>
+          </div>
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -359,9 +369,14 @@ const CarForm = () => {
           </div>
         </Card>
 
-        {/* القسم الثالث: التعديلات */}
-        <Card className="p-6">
-          <h3 className="text-lg font-semibold mb-4 text-right">التعديلات</h3>
+        {/* التعديلات */}
+        <Card className="p-6 border-l-4 border-l-accent/50 shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-8 bg-accent/10 rounded-full flex items-center justify-center">
+              <span className="text-accent font-bold text-sm">3</span>
+            </div>
+            <h3 className="text-lg font-bold text-foreground">التعديلات</h3>
+          </div>
           <div className="space-y-2">
             <Label htmlFor="modifications">التعديلات</Label>
             <Textarea
@@ -375,9 +390,14 @@ const CarForm = () => {
           </div>
         </Card>
 
-        {/* القسم الرابع: التفاصيل التقنية */}
-        <Card className="p-6">
-          <h3 className="text-lg font-semibold mb-4 text-right">التفاصيل التقنية</h3>
+        {/* التفاصيل التقنية */}
+        <Card className="p-6 border-l-4 border-l-destructive/50 shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-8 bg-destructive/10 rounded-full flex items-center justify-center">
+              <span className="text-destructive font-bold text-sm">4</span>
+            </div>
+            <h3 className="text-lg font-bold text-foreground">التفاصيل التقنية</h3>
+          </div>
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -435,9 +455,14 @@ const CarForm = () => {
           </div>
         </Card>
 
-        {/* القسم الخامس: حالة السيارة */}
-        <Card className="p-6">
-          <h3 className="text-lg font-semibold mb-4 text-right">حالة السيارة</h3>
+        {/* حالة السيارة */}
+        <Card className="p-6 border-l-4 border-l-muted/50 shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-8 bg-muted/10 rounded-full flex items-center justify-center">
+              <span className="text-muted-foreground font-bold text-sm">5</span>
+            </div>
+            <h3 className="text-lg font-bold text-foreground">حالة السيارة</h3>
+          </div>
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
@@ -489,9 +514,14 @@ const CarForm = () => {
           </div>
         </Card>
 
-        {/* القسم السادس: العملاء غير المرغوبين */}
-        <Card className="p-6">
-          <h3 className="text-lg font-semibold mb-4 text-right">العملاء غير المرغوبين</h3>
+        {/* العملاء غير المرغوبين */}
+        <Card className="p-6 border-l-4 border-l-warning/50 shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-8 bg-warning/10 rounded-full flex items-center justify-center">
+              <span className="text-warning font-bold text-sm">6</span>
+            </div>
+            <h3 className="text-lg font-bold text-foreground">العملاء غير المرغوبين</h3>
+          </div>
           <div className="space-y-2">
             <Label htmlFor="unwantedCustomers">العملاء غير المرغوبين</Label>
             <Textarea
@@ -505,9 +535,14 @@ const CarForm = () => {
           </div>
         </Card>
 
-        {/* القسم السابع: التجهيزات الإضافية */}
-        <Card className="p-6">
-          <h3 className="text-lg font-semibold mb-4 text-right">التجهيزات الإضافية</h3>
+        {/* التجهيزات الإضافية */}
+        <Card className="p-6 border-l-4 border-l-success/50 shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-8 bg-success/10 rounded-full flex items-center justify-center">
+              <span className="text-success font-bold text-sm">7</span>
+            </div>
+            <h3 className="text-lg font-bold text-foreground">التجهيزات الإضافية</h3>
+          </div>
           <div className="grid grid-cols-1 gap-3">
             {carFeatures.map((feature) => (
               <div key={feature} className="flex items-center space-x-2 space-x-reverse">
@@ -522,9 +557,14 @@ const CarForm = () => {
           </div>
         </Card>
 
-        {/* القسم الثامن: معلومات المالك */}
-        <Card className="p-6">
-          <h3 className="text-lg font-semibold mb-4 text-right">معلومات المالك</h3>
+        {/* معلومات المالك */}
+        <Card className="p-6 border-l-4 border-l-info/50 shadow-sm hover:shadow-md transition-shadow">
+          <div className="flex items-center gap-3 mb-6">
+            <div className="w-8 h-8 bg-info/10 rounded-full flex items-center justify-center">
+              <span className="text-info font-bold text-sm">8</span>
+            </div>
+            <h3 className="text-lg font-bold text-foreground">معلومات المالك</h3>
+          </div>
           <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
