@@ -417,7 +417,7 @@ const CarForm = () => {
                   id="steering"
                   value={formData.steering}
                   onChange={(e) => handleInputChange("steering", e.target.value)}
-                  placeholder="يمين، يسار"
+                  placeholder="نوع المقود"
                   className="text-right"
                 />
               </div>
@@ -629,7 +629,7 @@ const CarForm = () => {
                   id="taxAmount"
                   value={formData.taxAmount}
                   onChange={(e) => handleInputChange("taxAmount", e.target.value)}
-                  placeholder="1500 درهم"
+                  placeholder="أدخل مبلغ الضريبة"
                   className="text-right"
                 />
               </div>
@@ -640,7 +640,7 @@ const CarForm = () => {
                   id="insuranceAmount"
                   value={formData.insuranceAmount}
                   onChange={(e) => handleInputChange("insuranceAmount", e.target.value)}
-                  placeholder="2000 درهم"
+                  placeholder="أدخل مبلغ التأمين"
                   className="text-right"
                 />
               </div>
@@ -653,7 +653,7 @@ const CarForm = () => {
                   id="phone"
                   value={formData.phone}
                   onChange={(e) => handleInputChange("phone", e.target.value)}
-                  placeholder="+212 6XX XXX XXX"
+                  placeholder="أدخل رقم الهاتف"
                   className="text-right"
                 />
               </div>
@@ -664,7 +664,7 @@ const CarForm = () => {
                   id="price"
                   value={formData.price}
                   onChange={(e) => handleInputChange("price", e.target.value)}
-                  placeholder="150,000 درهم"
+                  placeholder="أدخل السعر"
                   className="text-right"
                 />
               </div>

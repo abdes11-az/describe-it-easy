@@ -457,7 +457,7 @@ const PhoneForm = () => {
                   id="price"
                   value={formData.price}
                   onChange={(e) => handleInputChange("price", e.target.value)}
-                  placeholder="مثال: 2500 ريال"
+                  placeholder="أدخل السعر"
                   className="text-right"
                 />
               </div>
@@ -482,7 +482,7 @@ const PhoneForm = () => {
                   id="contactMethod"
                   value={formData.contactMethod}
                   onChange={(e) => handleInputChange("contactMethod", e.target.value)}
-                  placeholder="مثال: واتساب، اتصال، رسائل"
+                  placeholder="أدخل طريقة التواصل المفضلة"
                   className="text-right"
                 />
               </div>
