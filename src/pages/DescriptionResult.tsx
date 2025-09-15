@@ -187,6 +187,137 @@ ${formData?.businessContractSigning === "نعم" ? "📄 موافق على ال�
 ${formData?.additionalNotes ? `📝 ملاحظات إضافية:\n${formData.additionalNotes}` : ""}
 
 ✅ ملف مستأجر موثوق ومناسب لمتطلباتكم`;
+      } else if (category === "tablets") {
+        mockDescription = `📱 ${formData?.brand || "تابلت"} ${formData?.model || ""} للبيع
+
+📍 الموقع: ${formData?.city || "غير محدد"}
+📱 المواصفات:
+${formData?.screenSize ? `• حجم الشاشة: ${formData.screenSize}` : ""}
+${formData?.resolution ? `• الدقة: ${formData.resolution}` : ""}
+${formData?.storage ? `• التخزين: ${formData.storage}` : ""}
+${formData?.ram ? `• الذاكرة: ${formData.ram}` : ""}
+${formData?.operatingSystem ? `• نظام التشغيل: ${formData.operatingSystem}` : ""}
+${formData?.processor ? `• المعالج: ${formData.processor}` : ""}
+${formData?.batteryLife ? `• عمر البطارية: ${formData.batteryLife}` : ""}
+${formData?.cameraResolution ? `• دقة الكاميرا: ${formData.cameraResolution}` : ""}
+${formData?.connectivity ? `• الاتصال: ${formData.connectivity}` : ""}
+${formData?.weight ? `• الوزن: ${formData.weight}` : ""}
+${formData?.color ? `• اللون: ${formData.color}` : ""}
+
+⭐ الحالة: ${formData?.condition || "غير محدد"}
+${formData?.accessories && formData.accessories.length > 0 ? `🎁 الملحقات:\n${formData.accessories.map(a => `• ${a}`).join('\n')}` : ""}
+
+💰 السعر: ${formData?.price || "للاستفسار"}
+⏱️ فترة الاستخدام: ${formData?.usagePeriod || "غير محدد"}
+${formData?.reason ? `📝 سبب البيع: ${formData.reason}` : ""}
+${formData?.unwantedCustomers ? `⚠️ العملاء غير المرغوبين: ${formData.unwantedCustomers}` : ""}
+${formData?.notes ? `📋 ملاحظات إضافية:\n${formData.notes}` : ""}`;
+
+      } else if (category === "computers") {
+        mockDescription = `💻 ${formData?.type || "حاسوب"} ${formData?.brand || ""} ${formData?.model || ""} للبيع
+
+📍 الموقع: ${formData?.city || "غير محدد"}
+💻 المواصفات:
+${formData?.type ? `• النوع: ${formData.type}` : ""}
+${formData?.processor ? `• المعالج: ${formData.processor}` : ""}
+${formData?.ram ? `• الذاكرة العشوائية: ${formData.ram}` : ""}
+${formData?.storage ? `• التخزين: ${formData.storage}` : ""}
+${formData?.operatingSystem ? `• نظام التشغيل: ${formData.operatingSystem}` : ""}
+${formData?.screenSize ? `• حجم الشاشة: ${formData.screenSize}` : ""}
+${formData?.screenResolution ? `• دقة الشاشة: ${formData.screenResolution}` : ""}
+${formData?.graphicsCard ? `• كرت الرسوميات: ${formData.graphicsCard}` : ""}
+${formData?.graphicsMemory ? `• ذاكرة الرسوميات: ${formData.graphicsMemory}` : ""}
+
+⭐ الحالة: ${formData?.condition || "غير محدد"}
+${formData?.ports && formData.ports.length > 0 ? `🔌 المنافذ:\n${formData.ports.map(p => `• ${p}`).join('\n')}` : ""}
+${formData?.connectivity && formData.connectivity.length > 0 ? `📡 الاتصال:\n${formData.connectivity.map(c => `• ${c}`).join('\n')}` : ""}
+${formData?.accessories && formData.accessories.length > 0 ? `🎁 الملحقات:\n${formData.accessories.map(a => `• ${a}`).join('\n')}` : ""}
+
+💰 السعر: ${formData?.price || "للاستفسار"}
+⏱️ فترة الاستخدام: ${formData?.usagePeriod || "غير محدد"}
+${formData?.reason ? `📝 سبب البيع: ${formData.reason}` : ""}
+${formData?.unwantedCustomers ? `⚠️ العملاء غير المرغوبين: ${formData.unwantedCustomers}` : ""}
+${formData?.notes ? `📋 ملاحظات إضافية:\n${formData.notes}` : ""}`;
+
+      } else if (category === "motorcycles") {
+        mockDescription = `🏍️ ${formData?.brand || "دراجة نارية"} ${formData?.model || ""} للبيع
+
+📍 الموقع: ${formData?.city || "غير محدد"}
+🏍️ المواصفات:
+${formData?.year ? `• سنة الصنع: ${formData.year}` : ""}
+${formData?.engineSize ? `• حجم المحرك: ${formData.engineSize}` : ""}
+${formData?.engineType ? `• نوع المحرك: ${formData.engineType}` : ""}
+${formData?.fuelType ? `• نوع الوقود: ${formData.fuelType}` : ""}
+${formData?.transmission ? `• ناقل الحركة: ${formData.transmission}` : ""}
+${formData?.maxSpeed ? `• السرعة القصوى: ${formData.maxSpeed}` : ""}
+${formData?.fuelConsumption ? `• استهلاك الوقود: ${formData.fuelConsumption}` : ""}
+${formData?.enginePower ? `• قوة المحرك: ${formData.enginePower}` : ""}
+${formData?.torque ? `• عزم الدوران: ${formData.torque}` : ""}
+${formData?.cooling ? `• نظام التبريد: ${formData.cooling}` : ""}
+${formData?.starter ? `• نظام التشغيل: ${formData.starter}` : ""}
+
+⭐ الحالة: ${formData?.condition || "غير محدد"}
+${formData?.kilometers ? `🛞 الكيلومترات: ${formData.kilometers}` : ""}
+${formData?.owners ? `👤 عدد المالكين: ${formData.owners}` : ""}
+${formData?.accidents ? `🚨 الحوادث: ${formData.accidents}` : ""}
+${formData?.maintenance ? `🔧 الصيانة: ${formData.maintenance}` : ""}
+${formData?.serviceHistory ? `📋 تاريخ الخدمة: ${formData.serviceHistory}` : ""}
+${formData?.color ? `🎨 اللون: ${formData.color}` : ""}
+${formData?.features && formData.features.length > 0 ? `✨ التجهيزات:\n${formData.features.map(f => `• ${f}`).join('\n')}` : ""}
+
+💰 السعر: ${formData?.price || "للاستفسار"}
+⏱️ فترة الاستخدام: ${formData?.usagePeriod || "غير محدد"}
+${formData?.reason ? `📝 سبب البيع: ${formData.reason}` : ""}
+${formData?.unwantedCustomers ? `⚠️ العملاء غير المرغوبين: ${formData.unwantedCustomers}` : ""}
+${formData?.notes ? `📋 ملاحظات إضافية:\n${formData.notes}` : ""}`;
+
+      } else if (category === "bicycles") {
+        mockDescription = `🚴 ${formData?.brand || "دراجة هوائية"} ${formData?.model || ""} للبيع
+
+📍 الموقع: ${formData?.city || "غير محدد"}
+🚴 المواصفات:
+${formData?.type ? `• النوع: ${formData.type}` : ""}
+${formData?.frameSize ? `• مقاس الإطار: ${formData.frameSize}` : ""}
+${formData?.frameMaterial ? `• مادة الإطار: ${formData.frameMaterial}` : ""}
+${formData?.wheelSize ? `• مقاس العجلات: ${formData.wheelSize}` : ""}
+${formData?.gears ? `• عدد السرعات: ${formData.gears}` : ""}
+${formData?.brakeType ? `• نوع الفرامل: ${formData.brakeType}` : ""}
+${formData?.suspension ? `• نظام التعليق: ${formData.suspension}` : ""}
+${formData?.weight ? `• الوزن: ${formData.weight}` : ""}
+${formData?.color ? `• اللون: ${formData.color}` : ""}
+
+⭐ الحالة: ${formData?.condition || "غير محدد"}
+${formData?.components && formData.components.length > 0 ? `🔧 المكونات:\n${formData.components.map(c => `• ${c}`).join('\n')}` : ""}
+${formData?.accessories && formData.accessories.length > 0 ? `🎁 الملحقات:\n${formData.accessories.map(a => `• ${a}`).join('\n')}` : ""}
+
+💰 السعر: ${formData?.price || "للاستفسار"}
+⏱️ فترة الاستخدام: ${formData?.usagePeriod || "غير محدد"}
+${formData?.reason ? `📝 سبب البيع: ${formData.reason}` : ""}
+${formData?.unwantedCustomers ? `⚠️ العملاء غير المرغوبين: ${formData.unwantedCustomers}` : ""}
+${formData?.notes ? `📋 ملاحظات إضافية:\n${formData.notes}` : ""}`;
+
+      } else if (category === "clothes") {
+        mockDescription = `👕 ${formData?.brand || "ملابس"} للبيع
+
+📍 الموقع: ${formData?.city || "غير محدد"}
+👗 التفاصيل:
+${formData?.type ? `• النوع: ${formData.type}` : ""}
+${formData?.brand ? `• الماركة: ${formData.brand}` : ""}
+${formData?.size ? `• المقاس: ${formData.size}` : ""}
+${formData?.color ? `• اللون: ${formData.color}` : ""}
+${formData?.material ? `• المادة: ${formData.material}` : ""}
+${formData?.season ? `• الموسم: ${formData.season}` : ""}
+${formData?.occasion ? `• المناسبة: ${formData.occasion}` : ""}
+
+⭐ الحالة: ${formData?.condition || "غير محدد"}
+${formData?.features && formData.features.length > 0 ? `✨ الميزات:\n${formData.features.map(f => `• ${f}`).join('\n')}` : ""}
+
+💰 السعر: ${formData?.price || "للاستفسار"}
+⏱️ فترة الاستخدام: ${formData?.usagePeriod || "غير محدد"}
+${formData?.reason ? `📝 سبب البيع: ${formData.reason}` : ""}
+${formData?.unwantedCustomers ? `⚠️ العملاء غير المرغوبين: ${formData.unwantedCustomers}` : ""}
+${formData?.notes ? `📋 ملاحظات إضافية:\n${formData.notes}` : ""}`;
+
       } else {
         // Default description for other categories
         mockDescription = `${formData?.name || "المنتج"} المميز
@@ -240,7 +371,12 @@ ${formData?.additionalNotes ? `📝 ملاحظات إضافية:\n${formData.add
         category: category === 'cars' ? 'سيارات' : 
                  category === 'phones' ? 'هواتف' : 
                  category === 'real-estate' ? 'عقارات' : 
-                 category === 'tenant' ? 'مستأجرين' : 'عام',
+                 category === 'tenant' ? 'مستأجرين' : 
+                 category === 'tablets' ? 'تابلت' : 
+                 category === 'computers' ? 'حواسب' : 
+                 category === 'motorcycles' ? 'دراجات نارية' : 
+                 category === 'bicycles' ? 'دراجات هوائية' : 
+                 category === 'clothes' ? 'ملابس' : 'عام',
         date: new Date().toLocaleDateString('ar-SA'),
         description: description,
         formData: formData,

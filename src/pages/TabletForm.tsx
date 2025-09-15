@@ -66,33 +66,9 @@ const TabletForm = () => {
     });
   };
 
-  const handleSubmit = () => {
-    const description = `تابلت ${formData.brand} ${formData.model} - ${formData.screenSize}
-المدينة: ${formData.city}
-حجم الشاشة: ${formData.screenSize}
-الدقة: ${formData.resolution}
-التخزين: ${formData.storage}
-الذاكرة: ${formData.ram}
-نظام التشغيل: ${formData.operatingSystem}
-الحالة: ${formData.condition}
-المعالج: ${formData.processor}
-عمر البطارية: ${formData.batteryLife}
-دقة الكاميرا: ${formData.cameraResolution}
-الاتصال: ${formData.connectivity}
-الوزن: ${formData.weight}
-اللون: ${formData.color}
-الملحقات: ${formData.accessories.join(", ")}
-فترة الاستخدام: ${formData.usagePeriod}
-سبب البيع: ${formData.reason}
-السعر: ${formData.price}
-ملاحظات إضافية: ${formData.notes}`;
-
-    navigate("/result", { 
-      state: { 
-        description,
-        category: "تابلت"
-      } 
-    });
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate("/result", { state: { formData, category: "tablets" } });
   };
 
   return (
@@ -118,7 +94,7 @@ const TabletForm = () => {
         </div>
       </div>
 
-      {/* القسم الأول: المعلومات الأساسية */}
+      <form onSubmit={handleSubmit} className="space-y-6">
       <Card className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/20 border-blue-200 dark:border-blue-800">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
@@ -434,15 +410,16 @@ const TabletForm = () => {
             />
           </div>
         </div>
-      </Card>
+        </Card>
 
-      {/* Submit Button */}
-      <Button 
-        onClick={handleSubmit}
-        className="w-full h-12 text-lg font-semibold"
-      >
-        إنشاء الوصف
-      </Button>
+        {/* Submit Button */}
+        <Button 
+          type="submit"
+          className="w-full h-12 text-lg font-semibold"
+        >
+          إنشاء الوصف
+        </Button>
+      </form>
     </div>
   );
 };

@@ -68,35 +68,9 @@ const ComputerForm = () => {
     });
   };
 
-  const handleSubmit = () => {
-    const description = `${formData.type} ${formData.brand} ${formData.model}
-المدينة: ${formData.city}
-النوع: ${formData.type}
-الماركة: ${formData.brand}
-الموديل: ${formData.model}
-المعالج: ${formData.processor}
-الذاكرة العشوائية: ${formData.ram}
-التخزين: ${formData.storage}
-نظام التشغيل: ${formData.operatingSystem}
-الحالة: ${formData.condition}
-حجم الشاشة: ${formData.screenSize}
-دقة الشاشة: ${formData.screenResolution}
-كرت الرسوميات: ${formData.graphicsCard}
-ذاكرة الرسوميات: ${formData.graphicsMemory}
-المنافذ: ${formData.ports.join(", ")}
-الاتصال: ${formData.connectivity.join(", ")}
-الملحقات: ${formData.accessories.join(", ")}
-فترة الاستخدام: ${formData.usagePeriod}
-سبب البيع: ${formData.reason}
-السعر: ${formData.price}
-ملاحظات إضافية: ${formData.notes}`;
-
-    navigate("/result", { 
-      state: { 
-        description,
-        category: "حواسب"
-      } 
-    });
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate("/result", { state: { formData, category: "computers" } });
   };
 
   return (
@@ -122,7 +96,7 @@ const ComputerForm = () => {
         </div>
       </div>
 
-      {/* القسم الأول: المعلومات الأساسية */}
+      <form onSubmit={handleSubmit} className="space-y-6">
       <Card className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/20 border-blue-200 dark:border-blue-800">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
@@ -468,15 +442,16 @@ const ComputerForm = () => {
             />
           </div>
         </div>
-      </Card>
+        </Card>
 
-      {/* Submit Button */}
-      <Button 
-        onClick={handleSubmit}
-        className="w-full h-12 text-lg font-semibold"
-      >
-        إنشاء الوصف
-      </Button>
+        {/* Submit Button */}
+        <Button 
+          type="submit"
+          className="w-full h-12 text-lg font-semibold"
+        >
+          إنشاء الوصف
+        </Button>
+      </form>
     </div>
   );
 };

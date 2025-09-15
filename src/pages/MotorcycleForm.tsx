@@ -74,41 +74,9 @@ const MotorcycleForm = () => {
     });
   };
 
-  const handleSubmit = () => {
-    const description = `دراجة نارية ${formData.brand} ${formData.model} - موديل ${formData.year}
-المدينة: ${formData.city}
-الماركة: ${formData.brand}
-الموديل: ${formData.model}
-سنة الصنع: ${formData.year}
-حجم المحرك: ${formData.engineSize}
-نوع المحرك: ${formData.engineType}
-نوع الوقود: ${formData.fuelType}
-ناقل الحركة: ${formData.transmission}
-الحالة: ${formData.condition}
-الكيلومترات: ${formData.kilometers}
-عدد المالكين: ${formData.owners}
-الحوادث: ${formData.accidents}
-الصيانة: ${formData.maintenance}
-تاريخ الخدمة: ${formData.serviceHistory}
-اللون: ${formData.color}
-السرعة القصوى: ${formData.maxSpeed}
-استهلاك الوقود: ${formData.fuelConsumption}
-قوة المحرك: ${formData.enginePower}
-عزم الدوران: ${formData.torque}
-نظام التبريد: ${formData.cooling}
-نظام التشغيل: ${formData.starter}
-التجهيزات: ${formData.features.join(", ")}
-فترة الاستخدام: ${formData.usagePeriod}
-سبب البيع: ${formData.reason}
-السعر: ${formData.price}
-ملاحظات إضافية: ${formData.notes}`;
-
-    navigate("/result", { 
-      state: { 
-        description,
-        category: "دراجات نارية"
-      } 
-    });
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    navigate("/result", { state: { formData, category: "motorcycles" } });
   };
 
   return (
@@ -134,7 +102,7 @@ const MotorcycleForm = () => {
         </div>
       </div>
 
-      {/* القسم الأول: المعلومات الأساسية */}
+      <form onSubmit={handleSubmit} className="space-y-6">
       <Card className="p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/20 border-blue-200 dark:border-blue-800">
         <div className="flex items-center gap-3 mb-4">
           <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center text-sm font-bold">1</div>
@@ -539,15 +507,16 @@ const MotorcycleForm = () => {
             />
           </div>
         </div>
-      </Card>
+        </Card>
 
-      {/* Submit Button */}
-      <Button 
-        onClick={handleSubmit}
-        className="w-full h-12 text-lg font-semibold"
-      >
-        إنشاء الوصف
-      </Button>
+        {/* Submit Button */}
+        <Button 
+          type="submit"
+          className="w-full h-12 text-lg font-semibold"
+        >
+          إنشاء الوصف
+        </Button>
+      </form>
     </div>
   );
 };
