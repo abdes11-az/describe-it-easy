@@ -316,30 +316,11 @@ ${formData?.additionalNotes ? `📝 ملاحظات إضافية:\n${formData.add
           </div>
         ) : (
           <div className="space-y-4">
-            {description?.split('\n').filter(line => line.trim()).map((line, index) => {
-              if (line.includes('🔸') || line.includes('▪️') || line.includes('•')) {
-                return (
-                  <div key={index} className="flex items-start gap-2 text-foreground">
-                    <span className="text-primary mt-1">•</span>
-                    <span>{line.replace(/[🔸▪️•]\s*/, '')}</span>
-                  </div>
-                );
-              }
-              if (line.includes(':') && !line.includes('http')) {
-                const [title, ...content] = line.split(':');
-                return (
-                  <div key={index} className="space-y-1">
-                    <h4 className="font-semibold text-primary">{title.trim()}:</h4>
-                    {content.length > 0 && <p className="text-foreground mr-4">{content.join(':').trim()}</p>}
-                  </div>
-                );
-              }
-              return (
-                <p key={index} className="text-foreground leading-relaxed">
-                  {line}
-                </p>
-              );
-            })}
+            <div className="prose prose-sm max-w-none text-right">
+              <div className="whitespace-pre-wrap text-foreground leading-relaxed bg-gray-50 dark:bg-gray-800 p-4 rounded-lg border">
+                {description}
+              </div>
+            </div>
           </div>
         )}
       </Card>
