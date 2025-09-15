@@ -39,6 +39,7 @@ const BicycleForm = () => {
     usagePeriod: "",
     reason: "",
     price: "",
+    unwantedCustomers: "",
     notes: ""
   });
 
@@ -452,6 +453,18 @@ const BicycleForm = () => {
               placeholder="السعر المطلوب"
               value={formData.price}
               onChange={(e) => handleInputChange("price", e.target.value)}
+            />
+          </div>
+          
+          <div className="space-y-2 md:col-span-2">
+            <Label htmlFor="unwantedCustomers">العملاء غير المرغوبين</Label>
+            <Textarea
+              id="unwantedCustomers"
+              placeholder="حدد نوع العملاء غير المرغوب فيهم (مثال: بدون وسطاء، السعر نهائي، جادين فقط)"
+              value={formData.unwantedCustomers}
+              onChange={(e) => handleInputChange("unwantedCustomers", e.target.value)}
+              rows={2}
+              className="resize-none"
             />
           </div>
           
